@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cb4-YZ-URX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,104 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf3-SR-6Mx">
+                                <rect key="frame" x="116" y="214" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="直播"/>
+                                <connections>
+                                    <action selector="liveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0F-zp-Pew"/>
+                                    <segue destination="vUG-B2-hg9" kind="push" id="7Rr-6l-bN8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OrN-5e-TCP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+        </scene>
+        <!--Live ShowVC-->
+        <scene sceneID="aE4-zf-Nbz">
+            <objects>
+                <viewController id="vUG-B2-hg9" customClass="JFLiveShowVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S6R-MS-MKA"/>
+                        <viewControllerLayoutGuide type="bottom" id="BJ4-Ij-zkG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zPi-gJ-dUY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kis-Us-ZP2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXr-8j-Dai">
+                                <rect key="frame" x="15" y="34" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Mjw-l3-n26"/>
+                                    <constraint firstAttribute="height" constant="30" id="sA1-rW-X6x"/>
+                                </constraints>
+                                <state key="normal" title="🔙"/>
+                                <connections>
+                                    <action selector="backAction:" destination="vUG-B2-hg9" eventType="touchUpInside" id="CDh-7r-5t9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqs-VK-N8n">
+                                <rect key="frame" x="44" y="606" width="286" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="odo-gJ-RL6"/>
+                                </constraints>
+                                <state key="normal" title="开始直播"/>
+                                <connections>
+                                    <action selector="startLiveAction:" destination="vUG-B2-hg9" eventType="touchUpInside" id="cct-fP-EIP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kis-Us-ZP2" secondAttribute="trailing" id="BkG-ck-iCz"/>
+                            <constraint firstItem="kis-Us-ZP2" firstAttribute="leading" secondItem="zPi-gJ-dUY" secondAttribute="leading" id="LHR-rG-fi2"/>
+                            <constraint firstAttribute="trailing" secondItem="Pqs-VK-N8n" secondAttribute="trailing" constant="45" id="aXL-ly-xOj"/>
+                            <constraint firstItem="BJ4-Ij-zkG" firstAttribute="top" secondItem="kis-Us-ZP2" secondAttribute="bottom" id="ba1-DE-kLq"/>
+                            <constraint firstItem="kis-Us-ZP2" firstAttribute="top" secondItem="zPi-gJ-dUY" secondAttribute="top" id="fVT-lY-mo1"/>
+                            <constraint firstItem="BJ4-Ij-zkG" firstAttribute="top" secondItem="Pqs-VK-N8n" secondAttribute="bottom" constant="31" id="gAN-Id-FOD"/>
+                            <constraint firstItem="Pqs-VK-N8n" firstAttribute="leading" secondItem="zPi-gJ-dUY" secondAttribute="leading" constant="44" id="rIN-ta-eF9"/>
+                            <constraint firstItem="RXr-8j-Dai" firstAttribute="leading" secondItem="zPi-gJ-dUY" secondAttribute="leading" constant="15" id="uGV-mr-6q8"/>
+                            <constraint firstItem="RXr-8j-Dai" firstAttribute="top" secondItem="S6R-MS-MKA" secondAttribute="bottom" constant="14" id="yEx-Iv-1vq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gZX-GH-osV"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="liveView" destination="kis-Us-ZP2" id="yEd-Bf-hlk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0e-5e-KFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709.5999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lo1-4n-b6f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cb4-YZ-URX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YIQ-1u-WdP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Kwv-e8-8hd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gSR-9j-1Yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
