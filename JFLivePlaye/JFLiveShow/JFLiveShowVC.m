@@ -18,13 +18,17 @@
 
 
 @interface JFLiveShowVC () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate, JFRtmpSocketDelegate, JFVideoEncoderDelegate, AACEncoderDelegate> {
-    dispatch_queue_t videoProcessingQueue, audioProcessingQueue, _jfEncodeQueue_video, _jfEncodeQueue_audio;
+    dispatch_queue_t
+                            videoProcessingQueue,
+                            audioProcessingQueue,
+                            _jfEncodeQueue_video,
+                            _jfEncodeQueue_audio;
     VTCompressionSessionRef _encodeSesion;
-    long    _frameCount;
-    FILE    *_h264File;
-    int     _spsppsFound;
-    FILE    *_aacFile;
-    dispatch_semaphore_t _lock;
+    long                    _frameCount;
+    FILE    *               _h264File;
+    int                     _spsppsFound;
+    FILE    *               _aacFile;
+    dispatch_semaphore_t    _lock;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *liveView;
